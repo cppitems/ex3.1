@@ -26,7 +26,7 @@ int main() {
     list.push_back(42.0);
     [[maybe_unused]] auto begin = list.begin(); // obtain iterator to begin
     [[maybe_unused]] auto end = list.end();     // obtain iterator to end
-    TEST_ASSERT(begin != end, "begin is end for empty list");
+    TEST_ASSERT(begin != end, "begin is end for non-empty list");
   }
 
   return 0;

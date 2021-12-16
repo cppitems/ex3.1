@@ -30,15 +30,15 @@ int main() {
         "cbegin does not return iterator with const access");
     static_assert(
         std::is_same<decltype(List<T>{}.cend())::value_type, const T>::value,
-        "cbegin does not return iterator with const access");
+        "cend does not return iterator with const access");
   }
 
   { // check if begin and end return iterators providing non-const access
     static_assert(
         std::is_same<decltype(List<T>{}.begin())::value_type, T>::value,
-        "cbegin does not return iterator with const access");
+        "begin does not return iterator with const access");
     static_assert(std::is_same<decltype(List<T>{}.end())::value_type, T>::value,
-                  "cbegin does not return iterator with const access");
+                  "end does not return iterator with const access");
   }
 
   { // check if begin and end obtained from a const list result in iterators
@@ -46,7 +46,7 @@ int main() {
     List<T> list;
     list.push_back(1.0);
     [[maybe_unused]] const List<T> &clist = list;
- 
+
     static_assert(
         !std::is_same<decltype(clist.begin())::value_type, T>::value,
         "begin does not return iterator with const access for const list");

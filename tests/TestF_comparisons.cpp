@@ -18,7 +18,7 @@ int main() {
     List<T> list{};
     [[maybe_unused]] auto begin = list.begin(); // obtain iterator to begin
     [[maybe_unused]] auto end = list.end();     // obtain iterator to end
-    TEST_ASSERT(begin == end, "begin is not end for empty list");
+    TEST_ASSERT(begin == end, "begin() is not eqaul to end() for empty list");
   }
 
   { // non-empty list, expecting begin != end
@@ -26,7 +26,7 @@ int main() {
     list.push_back(42.0);
     [[maybe_unused]] auto begin = list.begin(); // obtain iterator to begin
     [[maybe_unused]] auto end = list.end();     // obtain iterator to end
-    TEST_ASSERT(begin != end, "begin is end for empty list");
+    TEST_ASSERT(begin != end, "begin() is equal to end() for non-empty list");
   }
 
   return 0;
